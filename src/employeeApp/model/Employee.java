@@ -65,6 +65,31 @@ public class Employee {
         this.healthPlans = healthPlans;
     }
 
+    //NOT: Array'in size'i benim beklediğimin ötesinde oldugunda
+    // ArrayIndexOutOfBoundsException hatası alırım. Bu senaryoya hazırlıklı
+    // olabilmek icin try-catch blogu kullandık.
+
+    //new String[4] => healthPlans = [BASIC, MEDIUM, null, null]
+
+    public void addHealthPlan(int index, String name){
+        //guarding(negatif durumdan kurtulmak)
+        if(index < 0){
+            System.out.println("Index degeri 0'dan kücük olamaz");
+        }else{
+            try{
+                if(healthPlans[index] == null){
+                    healthPlans[index] = name;
+                } else {
+                    System.out.println("İlgili index doludur. " + index);
+                }
+            }catch (ArrayIndexOutOfBoundsException ex){
+                System.out.println("Invalid index: " + index);
+            } catch (Exception exception){
+                System.out.println("Error occured: " + exception.getMessage());
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -76,3 +101,6 @@ public class Employee {
                 '}';
     }
 }
+
+
+
