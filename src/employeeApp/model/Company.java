@@ -8,10 +8,18 @@ public class Company {
     private double giro;
     private String[] developerNames;
 
+    private void checkGiro(double giro){
+        if(giro < 0){
+            this.giro = 0;
+        } else {
+            this.giro = giro;
+        }
+    }
+
     public Company(int id, String name, double giro, String[] developerNames) {
         this.id = id;
         this.name = name;
-        this.giro = giro;
+        checkGiro(giro);
         this.developerNames = developerNames;
     }
 
@@ -36,7 +44,7 @@ public class Company {
     }
 
     public void setGiro(double giro) {
-        this.giro = giro;
+      checkGiro(giro);
     }
 
     public String[] getDeveloperNames() {
