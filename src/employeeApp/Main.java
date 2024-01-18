@@ -1,6 +1,7 @@
 package employeeApp;
 
 import employeeApp.enums.Plan;
+import employeeApp.model.Company;
 import employeeApp.model.Employee;
 import employeeApp.model.Healthplan;
 
@@ -31,8 +32,11 @@ public class Main
         healthPlans[1] = h2.getName();
 
 
-        Employee employee = new Employee(1, "Ali Veli",
-                "ali@veli.com", "1234", healthPlans);
+        Employee employee = new Employee(1, "Sevval Yurtseven",
+                "sevvalyurtseven@hotmail.com", "1234", healthPlans);
+
+        Employee employee1 = new Employee(2, "Ozge Dogru",
+                "ozgeozge@hotmail.com", "1234", healthPlans);
 
         employee.addHealthPlan(0, "C Sigorta");
         employee.addHealthPlan(2, "A Sigorta");
@@ -40,6 +44,31 @@ public class Main
         employee.addHealthPlan(3, "Y Sigorta");
 
         System.out.println(Arrays.toString(employee.getHealthPlans()));
+
+
+        System.out.println(employee);
+        System.out.println(employee1);
+
+        //["Sevval Yurtseven", "Ozge Dogru", null]
+
+        String[] developerNames = new String[3];
+        developerNames[0] = employee.getFullName();
+        developerNames[1] = employee1.getFullName();
+
+
+
+        Company company = new Company(1, "Workintech",
+                10000, developerNames);
+
+        company.addEmployee(0, "Sevval Yurtseven");
+        company.addEmployee(1, "Ozge Dogru");
+        company.addEmployee(2, "Fatih");
+        company.addEmployee(3, "Alptug");
+
+
+        System.out.println(Arrays.toString(company.getDeveloperNames()));
+        System.out.println(company);
+
 
     }
 
