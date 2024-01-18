@@ -55,6 +55,22 @@ public class Company {
         this.developerNames = developerNames;
     }
 
+    public void addEmployee(int index, String name){
+        if(index < 0 || index > developerNames.length){
+            System.out.println("Invalid index: " + index);
+        } else {
+            try {
+              if(developerNames[index] == null){
+                  developerNames[index] = name;
+              } else {
+                  System.out.println("Ilgılı index doludur: " + index);
+              }
+            }catch (ArrayIndexOutOfBoundsException ex){
+                System.out.println("Olmayan index'e atama yapıldı: " + index);
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "Company{" +
