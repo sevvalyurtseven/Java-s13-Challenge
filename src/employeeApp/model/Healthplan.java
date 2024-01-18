@@ -46,8 +46,8 @@ public class Healthplan {
     //TOSTRING() METHODUM:
 
     public String toString(){
-        return "ID: " + this.id + "Name: " + this.name
-                + "Plan Name " + plan.getName()
-                + "Plan Price " + plan.getPrice();
+        return " ID: " + this.id + " Name: " + this.name
+                + " Plan Name " + plan.getName()
+                + " Plan Price " + plan.getPrice();
     }
 }
