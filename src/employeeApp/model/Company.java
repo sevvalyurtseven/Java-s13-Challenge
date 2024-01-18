@@ -60,13 +60,25 @@ public class Company {
             System.out.println("Invalid index: " + index);
         } else {
             try {
-              if(developerNames[index] == null){
-                  developerNames[index] = name;
-              } else {
+                boolean isExist = false;
+                for(String developerName: developerNames){
+                    if(developerName != null && developerName.equals(name)){
+                        isExist = true;
+                        System.out.println(name + " DeveloperName içerisinde vardır. ");
+                        break;
+                    }
+                }
+                if(!isExist){
+                    if(developerNames[index] == null){
+                        developerNames[index] = name;
+                    }
+                } else {
                   System.out.println("Ilgılı index doludur: " + index);
               }
             }catch (ArrayIndexOutOfBoundsException ex){
                 System.out.println("Olmayan index'e atama yapıldı: " + index);
+            } catch (Exception exception){
+                System.out.println("Error occured: " + exception.getMessage());
             }
         }
     }
