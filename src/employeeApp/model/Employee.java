@@ -77,11 +77,25 @@ public class Employee {
             System.out.println("Index degeri 0'dan kücük olamaz");
         }else{
             try{
-                if(healthPlans[index] == null){
-                    healthPlans[index] = name;
-                } else {
-                    System.out.println("İlgili index doludur. " + index);
+                //name => A Sigorta
+                //healthPlans => A Sigorta, B Sigorta
+
+                boolean isExist = false;
+                for(String healthPlan: healthPlans){
+                    if(healthPlan != null && healthPlan.equals(name)){
+                        isExist = true;
+                        System.out.println(name + " HealthPlans içerisinde vardır. ");
+                        break;
+                    }
                 }
+                if(!isExist){
+                    if(healthPlans[index] == null){
+                        healthPlans[index] = name;
+                    } else {
+                        System.out.println("İlgili index doludur. " + index);
+                    }
+                }
+
             }catch (ArrayIndexOutOfBoundsException ex){
                 System.out.println("Invalid index: " + index);
             } catch (Exception exception){
